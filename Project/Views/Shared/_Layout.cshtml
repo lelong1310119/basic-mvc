@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Project</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Project.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                @*<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Project</a>*@
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Manage
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Students" asp-action="Index">Student</a>
+                                <a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Lecturers" asp-action="Index">Lecturer</a>
+                                <a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Faculties" asp-action="Index">Facutly</a>
+                                <a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Subjects" asp-action="Index">Subject</a>
+                                <a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="SubjectClasses" asp-action="Index">SubjectClass</a>
+                                <a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Scores" asp-action="Index">Score</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                File
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Predictive" asp-action="Index">Predictive</a>
+                                <a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Machine" asp-action="Index">Machine</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Database From File
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Predictives" asp-action="Index">Predictive</a>
+                                <a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Machines" asp-action="Index">Machine</a>
+                            </div>
+                        </li>
+                        @*<li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>*@
+                        @*<li class="nav-item">
+                            <a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Students" asp-action="Index">Sinh viên</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Lecturers" asp-action="Index">Giảng Viên</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Faculties" asp-action="Index">Khoa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Subjects" asp-action="Index">Môn học</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="SubjectClasses" asp-action="Index">Lớp môn học</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark dropdown-item" asp-area="" asp-controller="Scores" asp-action="Index">Điểm</a>
+                        </li>*@
+                        @*<li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Predictive" asp-action="Index">Predictive</a>
+                        </li>*@
+                        @*<li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Machines" asp-action="Index">Machine</a>
+                        </li>*@
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Accounts" asp-action="Index">Tài khoản</a>
+                        </li>
+                        <li class="nav-item logout">
+                            <button type="submit" class="btn btn-danger navbar-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Đăng xuất</button>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <!-- Button trigger modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Đăng xuất</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h2>Bạn muốn đăng xuất ?</h2>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("Logout", "Login")'">Đăng xuất</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*<footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - Project - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>*@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

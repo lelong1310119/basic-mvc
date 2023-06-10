@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Project.Models.Entities.Lecturer>
+
+@{
+    ViewData["Title"] = "Lecturer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Lecturer</h1>
+<p>
+    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Create")'">Create</button>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th class="action">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Edit", new { id = item.LecturerId })'">Edit</button>
+                <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("Details", new { id = item.LecturerId })'">Details</button>
+                <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("Delete", new { id = item.LecturerId })'">Delete</button>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

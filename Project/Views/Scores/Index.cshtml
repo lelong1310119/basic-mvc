@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Project.Models.Entities.Score>
+
+@{
+    ViewData["Title"] = "Score";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Score</h1>
+<p>
+    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Create")'">Create</button>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ScoreSubject)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubjectClass)
+            </th>
+            <th class="action">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScoreSubject)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.StudentId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubjectClass.SubjectClassId)
+            </td>
+            <td>
+                <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Edit", new { id = item.ScoreId })'">Edit</button>
+                <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("Details", new { id = item.ScoreId })'">Details</button>
+                <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("Delete", new { id = item.ScoreId })'">Delete</button>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

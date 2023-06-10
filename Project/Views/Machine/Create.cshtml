@@ -1,0 +1,132 @@
+﻿@model Project.Models.Entities.Machine
+
+@{
+    ViewData["Title"] = "Create Machine";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Predictive</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" type="Date"/>
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location" class="control-label"></label>
+                <input asp-for="Location" class="form-control" />
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MinTemp" class="control-label"></label>
+                <input asp-for="MinTemp" class="form-control" />
+                <span asp-validation-for="MinTemp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaxTemp" class="control-label"></label>
+                <input asp-for="MaxTemp" class="form-control" />
+                <span asp-validation-for="MaxTemp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Leakage" class="control-label"></label>
+                <input asp-for="Leakage" class="form-control" />
+                <span asp-validation-for="Leakage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Evaporation" class="control-label"></label>
+                <input asp-for="Evaporation" class="form-control" />
+                <span asp-validation-for="Evaporation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Electricity" class="control-label"></label>
+                <input asp-for="Electricity" class="form-control" />
+                <span asp-validation-for="Electricity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parameter1Dir" class="control-label"></label>
+                <input asp-for="Parameter1Dir" class="form-control" />
+                <span asp-validation-for="Parameter1Dir" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parameter1Speed" class="control-label"></label>
+                <input asp-for="Parameter1Speed" class="form-control" />
+                <span asp-validation-for="Parameter1Speed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parameter2_9am" class="control-label"></label>
+                <input asp-for="Parameter2_9am" class="form-control" />
+                <span asp-validation-for="Parameter2_9am" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parameter2_3pm" class="control-label"></label>
+                <input asp-for="Parameter2_3pm" class="form-control" />
+                <span asp-validation-for="Parameter2_3pm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parameter3_9am" class="control-label"></label>
+                <input asp-for="Parameter3_9am" class="form-control" />
+                <span asp-validation-for="Parameter3_9am" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parameter3_3pm" class="control-label"></label>
+                <input asp-for="Parameter3_3pm" class="form-control" />
+                <span asp-validation-for="Parameter3_3pm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parameter4_9am" class="control-label"></label>
+                <input asp-for="Parameter4_9am" class="form-control" />
+                <span asp-validation-for="Parameter4_9am" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parameter4_3pm" class="control-label"></label>
+                <input asp-for="Parameter4_3pm" class="form-control" />
+                <span asp-validation-for="Parameter4_3pm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parameter5_9am" class="control-label"></label>
+                <input asp-for="Parameter5_9am" class="form-control" />
+                <span asp-validation-for="Parameter5_9am" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parameter5_3pm" class="control-label"></label>
+                <input asp-for="Parameter5_3pm" class="form-control" />
+                <span asp-validation-for="Parameter5_3pm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parameter6_9am" class="control-label"></label>
+                <input asp-for="Parameter6_9am" class="form-control" />
+                <span asp-validation-for="Parameter6_9am" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parameter6_3pm" class="control-label"></label>
+                <input asp-for="Parameter6_3pm" class="form-control" />
+                <span asp-validation-for="Parameter6_3pm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parameter7_9am" class="control-label"></label>
+                <input asp-for="Parameter7_9am" class="form-control" />
+                <span asp-validation-for="Parameter7_9am" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Parameter7_3pm" class="control-label"></label>
+                <input asp-for="Parameter7_3pm" class="form-control" />
+                <span asp-validation-for="Parameter7_3pm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <p>
+                    <button type="submit" value="Create" class="btn btn-primary">Create</button>
+                </p>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

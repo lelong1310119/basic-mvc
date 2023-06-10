@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Project.Models.Entities.Account>
+
+@{
+    ViewData["Title"] = "Acount";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Account</h1>
+<p>
+    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Create")'">Create</button>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Username)
+            </th>
+            <th class="action">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Edit", new { id = item.AccountId })'">Edit</button>
+                    <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("Details", new { id = item.AccountId })'">Details</button>
+                    <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("Delete", new { id = item.AccountId })'">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

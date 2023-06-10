@@ -1,0 +1,276 @@
+﻿@model IEnumerable<Project.Models.Entities.Machine>
+
+@{
+    ViewData["Title"] = "Machine";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int currentPage = (int)(ViewData["page"] ?? 0);
+    int totalPage = (int)(ViewData["totalPage"] ?? 0);
+}
+
+<h1>Machines</h1>
+
+<p>
+    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Create")'">Create</button>
+</p>
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-start">
+        @if (currentPage == 1)
+        {
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item">
+                <a class="page-link" href="#" onclick="goToPage(@currentPage - 1)">Previous</a>
+            </li>
+        }
+        @if (totalPage > 0)
+        {
+            @if (currentPage > 3)
+            {
+                <li class="page-item d-none d-md-block">
+                    <a class="page-link">...</a>
+                </li>
+            }
+            @for (var i = (currentPage - 2); i <= (currentPage + 2); i++)
+            {
+                @if (i > 0 && i <= totalPage)
+                {
+                    @if (i == currentPage)
+                    {
+                        <li class="page-item active"><a class="page-link" href="#" onclick="goToPage(@i)">@i</a></li>
+                    }
+                    else
+                    {
+                        <li class="page-item"><a class="page-link" href="#" onclick="goToPage(@i)">@i</a></li>
+                    }
+                }
+            }
+            @if (currentPage < (totalPage - 2))
+            {
+                <li class="page-item d-none d-md-block">
+                    <a class="page-link">...</a>
+                </li>
+            }
+        }
+        @if (currentPage == totalPage)
+        {
+            <li class="page-item disabled">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item">
+                <a class="page-link" href="#" onclick="goToPage(@currentPage + 1)">Next</a>
+            </li>
+        }
+        <div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <button class="btn btn-primary btnGo" type="button" style="margin-left: 15px">Go</button>
+                </div>
+                <input class="form-control input-page" style="margin-left: 2px; width: 60px;margin-right: 10px;">
+            </div>
+            <span class="mx-2">Total Page: <span id="currentPage">@ViewData["totalPage"]</span></span>
+            <span class="d-flex align-items-center justify-content-center invalid-feedback d-none">Vui lòng nhập số từ 1 đến @ViewData["totalPage"]</span>
+        </div>
+    </ul>
+</nav>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MinTemp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaxTemp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Leakage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Evaporation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Electricity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parameter1Dir)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parameter1Speed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parameter2_9am)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parameter2_3pm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parameter3_9am)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parameter3_3pm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parameter4_9am)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parameter4_3pm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parameter5_9am)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parameter5_3pm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parameter6_9am)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parameter6_3pm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parameter7_9am)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parameter7_3pm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Failure_today)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RISK_MM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fail_tomorrow)
+            </th>
+            <th style="width: 222px"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MinTemp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaxTemp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Leakage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Evaporation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Electricity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Parameter1Dir)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Parameter1Speed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Parameter2_9am)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Parameter2_3pm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Parameter3_9am)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Parameter3_3pm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Parameter4_9am)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Parameter4_3pm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Parameter5_9am)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Parameter5_3pm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Parameter6_9am)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Parameter6_3pm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Parameter7_9am)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Parameter7_3pm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Failure_today)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RISK_MM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fail_tomorrow)
+                </td>
+                <td>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Edit", new { id = item.Id })'" style="margin: 3px">Edit</button>
+                        <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("Details", new { id = item.Id })'" style="margin: 3px">Details</button>
+                        <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("Delete", new { id = item.Id })'" style="margin: 3px">Delete</button>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script>
+    const input = document.querySelector('.input-page');
+    const btnGo = document.querySelector('.btnGo');
+    const feedback = document.querySelector('.invalid-feedback');
+
+    const currentPage = @ViewData["page"];
+    const totalPage = @ViewData["totalPage"];
+
+    btnGo.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const page = input.value.trim();
+        if (isNaN(page) || page < 1 || page > totalPage) {
+            feedback.classList.remove("d-none");
+            feedback.classList.add("d-block");
+            input.classList.add('is-invalid');
+            return;
+        }
+        window.location.href = '/Machines/Index?page=' + page;
+    });
+
+    input.addEventListener('input', function () {
+        feedback.classList.remove("d-block");
+        feedback.classList.add("d-none");
+        input.classList.remove('is-invalid');
+    });
+    function goToPage(page) {
+        window.location.href = "/Machines/Index?page=" + page;
+    }
+</script>

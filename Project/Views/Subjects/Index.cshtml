@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Project.Models.Entities.Subject>
+
+@{
+    ViewData["Title"] = "Subject";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Subject</h1>
+<p>
+    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Create")'">Create</button>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SubjectName)
+            </th>
+            <th class="action">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubjectName)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Edit", new { id = item.SubjectId })'">Edit</button>
+                    <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("Details", new { id = item.SubjectId })'">Details</button>
+                    <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("Delete", new { id = item.SubjectId })'">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<!-- Scrollable modal -->
+<div class="modal-dialog modal-dialog-scrollable">
+</div>
